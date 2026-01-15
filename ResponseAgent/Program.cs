@@ -7,9 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// アプリケーションサービスの登録
+// 繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ繧ｵ繝ｼ繝薙せ縺ｮ逋ｻ骭ｲ
 builder.Services.AddScoped<IFileProcessingService, FileProcessingService>();
 builder.Services.AddScoped<IAgentService, AgentService>();
+// 蟾ｮ蛻�陦ｨ遉ｺ繧ｵ繝ｼ繝薙せ縺ｮ逋ｻ骭ｲ
+builder.Services.AddScoped<DiffService>();
+
 
 var app = builder.Build();
 
