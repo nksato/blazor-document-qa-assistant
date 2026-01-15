@@ -1,0 +1,20 @@
+.diff-added {
+    background: #fff3a0;
+    cursor: pointer;
+    position: relative;
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
+.tooltip {
+    position: absolute;
+    top: 1.6em;
+    left: 0;
+    background: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    max-width: 400px;
+    z-index: 100;
+}
