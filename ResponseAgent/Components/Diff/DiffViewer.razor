@@ -1,0 +1,42 @@
+@using ResponseAgent.Models
+@inject ResponseAgent.Services.DiffService DiffService
+
+<div class="diff-container">
+@foreach (var seg in Segments)
+{
+    if (seg.IsAdded)
+    {
+        <span class="diff-added" @onclick="() => Toggle(seg.Id)">
+            @seg.Text
+            @if (OpenTooltipId == seg.Id)
+            {
+                <span class="tooltip">
+                    変更前：@seg.BeforeText
+                </span>
+            }
+        </span>
+    }
+    else
+    {
+        @seg.Text
+    }
+}
+</div>
+
+@code {
+    [Parameter] public string BeforeText { get; set; } = "";
+    [Parameter] public string AfterText { get; set; } = "";
+
+    private List<DiffSegment> Segments = new();
+    private int? OpenTooltipId;
+
+    protected override void OnParametersSet()
+    {
+        Segments = DiffService.Build(BeforeText, AfterText);
+    }
+
+    void Toggle(int id)
+    {
+        OpenTooltipId = OpenTooltipId == id ? null : id;
+    }
+}
