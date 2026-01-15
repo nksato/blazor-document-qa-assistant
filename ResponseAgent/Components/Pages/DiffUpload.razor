@@ -352,14 +352,14 @@
         }
         
         // LCSを逆順で構築
-        var lcs = new List<string>();
+        var lcsReversed = new List<string>();
         int x = m, y = n;
         
         while (x > 0 && y > 0)
         {
             if (lines1[x - 1] == lines2[y - 1])
             {
-                lcs.Insert(0, lines1[x - 1]);
+                lcsReversed.Add(lines1[x - 1]);
                 x--;
                 y--;
             }
@@ -373,6 +373,7 @@
             }
         }
         
-        return lcs;
+        lcsReversed.Reverse();
+        return lcsReversed;
     }
 }
