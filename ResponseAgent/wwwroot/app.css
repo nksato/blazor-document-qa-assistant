@@ -34,6 +34,23 @@ body {
 }
 
 /* === ヘッダースタイル === */
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: var(--gray-100);
+    color: var(--primary-color) !important;
+}
+
 .app-header {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
     color: white;
@@ -130,6 +147,20 @@ body {
 
 .upload-area:hover {
     border-color: var(--primary-light);
+    background: white;
+}
+
+.upload-area-small {
+    border: 1px dashed var(--gray-400);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    text-align: center;
+    background: var(--gray-50);
+    transition: all 0.2s ease;
+}
+
+.upload-area-small:hover {
+    border-color: var(--primary-color);
     background: white;
 }
 
@@ -363,4 +394,67 @@ h1:focus {
 .placeholder-card .card-body-placeholder p {
     margin-top: 1rem;
     margin-bottom: 0;
+}
+
+/* === Diff Component Styles === */
+.diff-container {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--border-radius);
+    max-height: 500px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+}
+
+.diff-line {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.diff-line:last-child {
+    border-bottom: none;
+}
+
+.diff-line-marker {
+    width: 2rem;
+    flex-shrink: 0;
+    text-align: center;
+    font-weight: bold;
+    user-select: none;
+}
+
+.diff-line-content {
+    flex: 1;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.diff-line-added {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.diff-line-added .diff-line-marker {
+    color: #28a745;
+}
+
+.diff-line-removed {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.diff-line-removed .diff-line-marker {
+    color: #dc3545;
+}
+
+.diff-line-unchanged {
+    background-color: white;
+    color: var(--gray-700);
+}
+
+.diff-line-unchanged .diff-line-marker {
+    color: var(--gray-400);
 }
